@@ -15,9 +15,15 @@ export class NavMenuComponent {
   constructor(public authService: AuthService, public activityService: ActivityTrackerService) {
     authService.handleAuthentication();
     this.activityService.getMe().subscribe(result => {
+      // Check to ensure the result is something valid
+      if (result == null) {
+        return;
+      }
       this.name = result.firstName + ' ' + result.lastName;
       this.isAlreadyUser = true;
-    });
+    },
+      error => console.log(error)
+    );
   }
 
   isExpanded = false;
