@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ActivityTrackerService {
-  constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {}
+  constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
 
   // An observable is a stream of events that you can listen to.
   public createUser(): Observable<User> {
@@ -23,6 +23,11 @@ export class ActivityTrackerService {
   private getAuthHeaders() {
     const accessToken = localStorage.getItem('access_token');
     const idToken = localStorage.getItem('id_token');
+    if (idToken == null) {
+      return {
+        headers: new HttpHeaders()
+      };
+    }
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
