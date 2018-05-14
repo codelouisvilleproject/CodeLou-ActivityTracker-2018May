@@ -14,7 +14,7 @@ export class AuthService {
     scope: 'openid profile email'
   });
 
-  constructor(public router: Router) {}
+  constructor(public router: Router) { }
 
   public login(): void {
     this.auth0.authorize();
