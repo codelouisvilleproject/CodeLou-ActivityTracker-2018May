@@ -5,37 +5,37 @@ using ActivityTracker.Models;
 
 namespace ActivityTracker.Controllers
 {
-    [Route("api/categories")]
+    [Route("api/[controller]")]
     public class CategoriesController : ControllerBase
     {
-        private readonly CategoryContext _context;
+        private readonly CategoriesContext _context;
 
-        public CategoriesController(CategoryContext context)
+        public CategoriesController(CategoriesContext context)
         {
             _context = context;
 
             if (_context.CategoriesItems.Count() == 0)
             {
-                _context.CategoriesItems.Add(new CategoryItem { Name = "Item1" });
+                _context.CategoriesItems.Add(new CategoriesItem { Name = "Item1" });
                 _context.SaveChanges();
             }
+        }
 
-            [HttpGet]
-            public List<CategoryItem> GetAll()
-            {
-                return _context.CategoriesItems.ToList();
-            }
+        [HttpGet]
+        public List<CategoriesItem> GetAll()
+        {
+            return _context.CategoriesItems.ToList();
+        }
 
-            [HttpGet("{id}", Name = "GetCategory")]
-            public IActionResult GetById(long id)
+        [HttpGet("{id}", Name = "GetCategory")]
+        public IActionResult GetById(long id)
+        {
+            var item = _context.CategoriesItems.Find(id);
+            if (item == null)
             {
-                var item = _context.CategoriesItems.Find(id);
-                if (item == null)
-                {
-                    return NotFound();
-                }
-                return Ok(item);
+                return NotFound();
             }
+            return Ok(item);
         }       
     }
 }
