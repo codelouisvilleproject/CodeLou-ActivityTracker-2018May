@@ -6,7 +6,7 @@ namespace ActivityTracker.Models
     public class CategoriesContext: DbContext
     {
         public int Id { get; set; }
-        enum Name : string
+        enum Name
         {
             Cardio,
             Flexibility,
