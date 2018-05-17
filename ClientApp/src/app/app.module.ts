@@ -9,9 +9,12 @@ import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetch-data/fetch-data.component';
 import { FriendsComponent } from './components/friends/friends.component';
+import { AddActivityFormComponent, AddActivityCatagoriesMenuComponent } from './components/add-activity';
+
 
 @NgModule({
-  declarations: [AppComponent, NavMenuComponent, HomeComponent, FetchDataComponent, FriendsComponent],
+  declarations: [AppComponent, NavMenuComponent, HomeComponent, FetchDataComponent, FriendsComponent, AddActivityFormComponent,
+                 AddActivityCatagoriesMenuComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
@@ -19,7 +22,9 @@ import { FriendsComponent } from './components/friends/friends.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'friends', component: FriendsComponent },
-      { path: 'fetch-data', component: FetchDataComponent }
+      { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'add-activity', component: AddActivityFormComponent },
+      { path: 'add-activity', component: AddActivityCatagoriesMenuComponent },
     ])
   ],
   providers: [],
