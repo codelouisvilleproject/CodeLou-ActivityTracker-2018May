@@ -11,9 +11,10 @@ using System;
 namespace ActivityTracker.Migrations
 {
     [DbContext(typeof(ActivityContext))]
-    partial class ActivityContextModelSnapshot : ModelSnapshot
+    [Migration("20180521234440_AddActivityTypeTable")]
+    partial class AddActivityTypeTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
