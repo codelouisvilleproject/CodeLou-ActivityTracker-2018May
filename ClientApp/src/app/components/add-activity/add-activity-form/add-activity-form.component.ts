@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './add-activity-form.component.html',
 })
 export class AddActivityFormComponent {
+
 }
 
 

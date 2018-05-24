@@ -1,0 +1,9 @@
+<select [(ngModel)]="whereWeStoreTheValue">
+  <ng-container *ngFor="let option of options">
+    <option *ngIf="!option.isDivider" [ngValue]="option">{{option.name}}</option>
+    <option *ngIf="option.isDivider" disabled>{{option.name}}</option>
+
+  </ng-container>
+</select>
+
+<app-add-activity-datepicker></app-add-activity-datepicker>
