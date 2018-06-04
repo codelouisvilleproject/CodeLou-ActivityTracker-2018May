@@ -10,6 +10,7 @@ namespace ActivityTracker.Database
     public class ActivityContext : DbContext
     {
         public DbSet<User> Users { get; set; }
+        public DbSet<Categories> Categories { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // Use SQLite for Dev, will use something else for production. SQLite is GREAT for local development if you can get away with it
