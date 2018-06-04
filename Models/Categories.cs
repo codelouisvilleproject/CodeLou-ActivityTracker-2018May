@@ -3,14 +3,15 @@ using System;
 
 namespace ActivityTracker.Models
 {
-    public class CategoriesContext: DbContext
+    public class Categories
     {
         public int Id { get; set; }
-        enum Name
+        public string Name { get; set; }
+    }
+        public enum Name
         {
             Cardio,
             Flexibility,
             CardioStrength
         }
-    }
 }
